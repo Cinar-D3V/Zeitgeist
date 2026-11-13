@@ -1,198 +1,225 @@
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zeitgeist</title>
+<html>
+  <head>
+      <title>Zeitgeist</title>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+      <style>
+          * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+          }
 
-body {
-    background: #e9e5dc;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-}
+          body {
+              font-family: "Times New Roman", serif;
+          }
 
-/* top section */
+          /* sidebar, edit if you need, font seems kinda ai lowkey like it tho, found it in google docs */
 
-header {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+          nav {
+              position: fixed;
+              left: 0;
+              top: 0;
+              width: 220px;
+              height: 100vh;
+              padding: 40px 25px;
+              display: flex;
+              flex-direction: column;
+              z-index: 10;
+          }
 
-header h1 {
-    font-size: clamp(50px, 9vw, 110px);
-    letter-spacing: 8px;
-    color: #35271c;
-}
+          nav h2 {
+              font-family: "Times New Roman", serif;
+              font-size: 25px;
+              font-weight: normal;
+              margin-bottom: 60px;
+          }
 
-header p {
-    margin-top: 20px;
-    color: #766553;
-    letter-spacing: 3px;
-}
+          nav a {
+              font-family: "Times New Roman", serif;
+              text-decoration: none;
+              font-size: 14px;
+              margin-bottom: 30px;
+          }
 
-/* jenga container */
+          /* content section */
 
-.jenga-container {
-    width: 100%;
-    padding: 100px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 35px;
-}
+          main {
+              margin-left: 220px;
+          }
 
-/* individual blocks */
+          section {
+              min-height: 100vh;
+              height: auto;
+              padding: 70px 9%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+          }
 
-.block {
-    width: min(800px, 75%);
-    min-height: 150px;
-    background: linear-gradient(
-        135deg,
-        #c99b64,
-        #b9824c,
-        #d5a775
-    );
+          section h1 {
+              /* times new roman for formality things, you know like the mla look lowkey */
+              font-family: "Times New Roman", serif;
+              font-size: 65px;
+              font-weight: normal;
+              letter-spacing: -2px;
+              margin-bottom: 35px;
+          }
 
-    border: 2px solid #98683c;
-    border-radius: 5px;
+          section h2 {
+              font-family: "Times New Roman", serif;
+              font-weight: normal;
+          }
 
-    box-shadow:
-        0 8px 0 #98683c,
-        0 12px 20px rgba(0,0,0,0.15);
+          section p {
+              font-family: "Times New Roman", serif;
+              font-size: 19px;
+              line-height: 1.8;
+              max-width: 750px;
+          }
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+          .number {
+              font-family: "Times New Roman", serif;
+              font-size: 12px;
+              letter-spacing: 3px;
+              margin-bottom: 25px;
+          }
 
-    color: #382719;
-    font-size: 25px;
-    letter-spacing: 3px;
-    font-weight: bold;
+          /* title page */
 
-    position: relative;
+          #title {
+              background-color: #8C7965;
+              color: #A99A78;
+          }
 
-    /* scroll animation */
-    animation: blockAnimation linear both;
-    animation-timeline: view();
-    animation-range: entry 0% exit 100%;
-}
+          #title h1 {
+              font-size: 95px;
+          }
 
-/* alternate sides */
+          #title h2 {
+              font-size: 30px;
+              margin-bottom: 15px;
+          }
 
-.block:nth-child(odd) {
-    margin-left: -15%;
-}
+          /* biography page */
 
-.block:nth-child(even) {
-    margin-left: 15%;
-}
+          #biography {
+              background-color: #A99A78;
+              color: #343C36;
+          }
 
-/* left blocks */
+          /* lit analysis page */
 
-.block:nth-child(odd) {
-    --direction: -120vw;
-}
+          #literary {
+              background-color: #343C36;
+              color: #77766A;
+          }
 
-/* right blocks */
+          /* hist context page */
 
-.block:nth-child(even) {
-    --direction: 120vw;
-}
+          #historical {
+              background-color: #8C7965;
+              color: #A99A78;
+          }
 
-/* animation */
+          /* works cited */
 
-@keyframes blockAnimation {
-    0% {
-        transform: translateX(var(--direction)) scale(0.7);
-        opacity: 0;
-    }
+          #works-cited {
+              background-color: #77766A;
+              color: #343C36;
+          }
 
-    25% {
-        transform: translateX(0) scale(1);
-        opacity: 1;
-    }
+          /* sidebar colors (have to change to match the changing color of the page) */
+          /* contrasting colors like we saw in the museum work well for this and give it more touch i think */
 
-    65% {
-        transform: translateX(0) scale(1);
-        opacity: 1;
-    }
+          body:has(#title:target) nav,
+          body:not(:has(section:target)) nav {
+              background-color: #A99A78;
+              color: #343C36;
+          }
 
-    100% {
-        transform: translateX(0) scale(0.3);
-        opacity: 0;
-    }
-}
+          body:has(#title:target) nav a,
+          body:not(:has(section:target)) nav a {
+              color: #343C36;
+          }
 
-/* ending */
+          body:has(#biography:target) nav {
+              background-color: #8C7965;
+              color: #A99A78;
+          }
 
-footer {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    color: #35271c;
-}
+          body:has(#biography:target) nav a {
+              color: #A99A78;
+          }
 
-@media (max-width: 600px) {
-    .block {
-        width: 80%;
-        min-height: 120px;
-        font-size: 18px;
-    }
+          body:has(#literary:target) nav {
+              background-color: #77766A;
+              color: #343C36;
+          }
 
-    .block:nth-child(odd) {
-        margin-left: -5%;
-    }
+          body:has(#literary:target) nav a {
+              color: #343C36;
+          }
 
-    .block:nth-child(even) {
-        margin-left: 5%;
-    }
-}
-</style>
-</head>
+          body:has(#historical:target) nav {
+              background-color: #A99A78;
+              color: #343C36;
+          }
 
-<body>
+          body:has(#historical:target) nav a {
+              color: #343C36;
+          }
 
-<header>
-    <h1>JENGA</h1>
-    <p>SCROLL TO EXPLORE</p>
-</header>
+          body:has(#works-cited:target) nav {
+              background-color: #343C36;
+              color: #77766A;
+          }
 
-<main class="jenga-container">
+          body:has(#works-cited:target) nav a {
+              color: #77766A;
+          }
 
-    <div class="block">TITLE HERE</div>
-    <div class="block">CONTENT HERE</div>
+      </style>
+  </head>
+  <body>
 
-    <div class="block">TITLE HERE</div>
-    <div class="block">CONTENT HERE</div>
+    <nav>
+        <h2>History & Lit shared Project</h2>
 
-    <div class="block">TITLE HERE</div>
-    <div class="block">CONTENT HERE</div>
+        <a href="#title">01 &nbsp; Title</a>
+        <a href="#biography">02 &nbsp; Biography</a>
+        <a href="#literary">03 &nbsp; Literary Analysis</a>
+        <a href="#historical">04 &nbsp; Historical Context</a>
+        <a href="#works-cited">05 &nbsp; Works Cited</a>
+    </nav>
 
-    <div class="block">TITLE HERE</div>
-    <div class="block">CONTENT HERE</div>
+    <main>
+        <section id="title">
+            <h1>Zeitgeist in Europe post WW I & II</h1>
+            <h2>In the Penal Colony</h2>
+            <p>Franz Kafka</p>
+        </section>
 
-    <div class="block">TITLE HERE</div>
-    <div class="block">CONTENT HERE</div>
+        <section id="biography">
+            <h1>Biography</h1>
+            <p>add bio here (me)</p>
+        </section>
 
-</main>
+        <section id="literary">
+            <h1>Literary Analysis</h1>
+            <p>add lit analysis here (Kumail)</p>
+        </section>
 
-<footer>
-    END
-</footer>
+        <section id="historical">
+            <h1>Historical Context</h1>
+            <p>add hist context here (aarav panwaru :3)</p>
+        </section>
 
-</body>
+        <section id="works-cited">
+            <h1>Works Cited</h1>
+            <p>links here (non so far lol!) (me)</p>
+        </section>
+    </main>
+  </body>
 </html>
-
