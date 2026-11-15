@@ -70,6 +70,18 @@ section p {
     font-size: 19px;
     line-height: 1.8;
     max-width: 750px;
+    text-indent: 2em; 
+}
+
+.img-centering {
+    max-width: 750px;   
+    text-align: center; 
+    margin: 25px 0;    
+}
+
+.img-centering img {
+    max-width: 200px; 
+    height: auto;
 }
 
 .number {
