@@ -12,6 +12,21 @@
         nav a {
             color: #333739;
         }
+        
+        /* oh my goodness this is so tuff */
+        @keyframes img-anim {
+            from {width: 190px; box-shadow: none;}
+            to {width: 200px; box-shadow: black 2px 2px 10px;}
+        }
+        img {
+            width: 190px;
+        }
+        img:hover {
+            animation-name: img-anim;
+            animation-duration: 0.1s;
+            animation-timing-function: ease-in;
+            animation-fill-mode: forwards;
+        }
       </style>
     </head>
     <body>
