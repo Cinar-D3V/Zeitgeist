@@ -124,8 +124,8 @@ section p {
 /* hist context page */
 
 #historical {
-    background-color: #8C7965;
-    color: #A99A78;
+    background-color: rgb(186, 179, 161);
+    color: #393833;
 }
 
 /* works cited */
