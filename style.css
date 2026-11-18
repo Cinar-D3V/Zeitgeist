@@ -94,16 +94,15 @@ section p {
 /* title page */
 
 @keyframes title-effect {
-    0% {color: #A99A78;}
-    50% {color: #978a68;}
-    100% {color: #A99A78;}
+    from {color: #A99A78;}
+    to {color: #978a68;}
 }
 
 #title {
     background-color: #8C7965;
     animation-name: title-effect;
     animation-duration: 2s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: alternate;
 }
 
 #title h1 {
