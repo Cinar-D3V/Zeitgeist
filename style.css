@@ -8,8 +8,6 @@ body {
     font-family: "Times New Roman", serif;
 }
 
-.layout { display: flex; align-items: stretch; min-height: 100vh; }
-
 
 nav {
     position: fixed;
