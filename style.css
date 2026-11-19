@@ -143,6 +143,7 @@ section p {
     color: #343C36;
 }
 
+
 /* phone layout stuff */
 
 @media (max-width: 600px) {
@@ -150,10 +151,11 @@ section p {
     nav {
         position: static;
         width: 100%;
-        height: auto;
+        min-height: 100svh;
         padding: 25px 7%;
         flex-direction: row;
         flex-wrap: wrap;
+        align-content: flex-start;
     }
 
     nav h2 {
@@ -170,6 +172,7 @@ section p {
 
     main {
         margin-left: 0;
+        width: 100%;
     }
 
     section {
