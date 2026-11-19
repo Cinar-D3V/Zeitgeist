@@ -180,7 +180,7 @@ main {
 }
 
 section {
-    min-height: auto;
+    min-height: 100vh;
     padding: 40px 20px;
     justify-content: flex-start;
 }
