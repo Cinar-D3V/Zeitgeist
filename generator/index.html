@@ -17,9 +17,13 @@
             color: #343C36;
         }
         #result {
-            background-color: white;
+            border-style: dashed;
+            border-width: 2px;
+            border-radius: 10px;
+
+            text-align: center;
             font-family: "fancy-font";
-            font-size: 50px;
+            font-size: 40px;
             text-indent: 0;
         }
         .grid {
@@ -41,6 +45,10 @@
             background-color: #343C36;
             color: #A99A78;
         }
+        button:disabled {
+            background-color: #343C36;
+            color: #A99A78;
+        }
       </style>
     </head>
     <body>
@@ -52,28 +60,29 @@
         <a href="../literary/index.html">03 &nbsp; Literary Analysis</a>
         <a href="../historical/index.html">04 &nbsp; Historical Context</a>
         <a href="../works-cited/index.html">05 &nbsp; Works Cited</a>
+        <a href="">06 &nbsp; Bonus: Confesional</a>
     </nav>
     <main>
         <section id="historical">
-            <h1>What have you ever done before?</h1>
-            <h2>What have you done the most?</h2>
+            <h1>Confess to your sins</h1>
+            <h2>Pick the three worst things you've ever done:</h2>
 
             <div class="grid">
-                <button onclick="sentence('Thou shalt put away thy victuals')">Not putting your lunch away</button>
-                <button onclick="sentence('Cross only where thou art bidden')">Jaywalking</button>
-                <button onclick="sentence('Defile not the road of the King')">Littering</button>
-                <button onclick="sentence('Idle not upon the ground of another')">Loitering</button>
-                <button onclick="sentence('Await thy turn in humility')">Cutting in line</button>
-                <button onclick="sentence('Disturb not the door of thy neighbour')">Ding dong ditch</button>
-                <button onclick="sentence('Return that which thou hast borrowed')">Late library book</button>
-                <button onclick="sentence('Restore the cart unto its place')">Not returning a cart</button>
-                <button onclick="sentence('Bring not thine own bread into the house of plays')">Sneaking in snacks</button>
-                <button onclick="sentence('Ride not where thou art forbidden')">Skateboarding</button>
-                <button onclick="sentence('Pluck not the flowers of the commons')">Picking park flowers</button>
-                <button onclick="sentence('Feed not the fowl of the square')">Feeding pigeons</button>
-                <button onclick="sentence('Covet not the signal of thy neighbour')">Stealing Wi-Fi</button>
-                <button onclick="sentence('Spit not upon the stones')">Spitting gum</button>
-                <button onclick="sentence('Deface not the property of thy betters')">Writing on desks</button>
+                <button onclick="sentence('Thou shalt put away thy victuals.'); this.disabled = true;">Not putting your lunch away</button>
+                <button onclick="sentence('Cross only where thou art bidden.'); this.disabled = true;">Jaywalking</button>
+                <button onclick="sentence('Defile not the road of the King.'); this.disabled = true;">Littering</button>
+                <button onclick="sentence('Idle not upon the ground of another.'); this.disabled = true;">Loitering</button>
+                <button onclick="sentence('Await thy turn in humility.'); this.disabled = true;">Cutting in line</button>
+                <button onclick="sentence('Disturb not the door of thy neighbour.'); this.disabled = true;">Ding dong ditch</button>
+                <button onclick="sentence('Return that which thou hast borrowed.'); this.disabled = true;">Late library book</button>
+                <button onclick="sentence('Restore the cart unto its place.'); this.disabled = true;">Not returning a cart</button>
+                <button onclick="sentence('Bring not thine own bread into the house of plays.'); this.disabled = true;">Sneaking in snacks</button>
+                <button onclick="sentence('Ride not where thou art forbidden.'); this.disabled = true;">Skateboarding</button>
+                <button onclick="sentence('Pluck not the flowers of the commons.'); this.disabled = true;">Picking park flowers</button>
+                <button onclick="sentence('Feed not the fowl of the square.'); this.disabled = true;">Feeding pigeons</button>
+                <button onclick="sentence('Covet not the signal of thy neighbour.'); this.disabled = true;">Stealing Wi-Fi</button>
+                <button onclick="sentence('Spit not upon the stones.'); this.disabled = true;">Spitting gum</button>
+                <button onclick="sentence('Deface not the property of thy betters.'); this.disabled = true;">Writing on desks</button>
             </div>
 
             <p id="result"></p>
@@ -89,9 +98,12 @@
                 return;
             }
             picked.push(text);
-            document.querySelector("#result").innerText = picked.join("\n");
+
+            if (picked.length == 3) {
+                document.querySelector("#result").innerText = picked.join("\n");
             document.querySelector("#question").style.display = "block";
             document.querySelector("#question").scrollIntoView({ behavior: "smooth" });
+            }
         }
     </script>
     </body>
