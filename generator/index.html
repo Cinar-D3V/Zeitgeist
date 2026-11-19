@@ -20,6 +20,14 @@
             background-color: white;
             font-family: "fancy-font";
             font-size: 50px;
+            text-indent: 0;
+        }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-width: 700px;
+            margin-bottom: 30px;
         }
         button {
             width: 120px;
@@ -41,33 +49,39 @@
         <section id="historical">
             <h1>What have you ever done before?</h1>
             <h2>What have you done the most?</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 10px; max-width: 700px;"></div>
-            <button onclick="sentence('Thou shalt put away thy victuals')">Not putting your lunch away</button>
-            <button onclick="sentence('Cross only where thou art bidden')">Jaywalking</button>
-            <button onclick="sentence('Defile not the road of the King')">Littering</button>
-            <button onclick="sentence('Idle not upon the ground of another')">Loitering</button>
-            <button onclick="sentence('Await thy turn in humility')">Cutting in line</button>
-            <button onclick="sentence('Disturb not the door of thy neighbour')">Ding dong ditch</button>
-            <button onclick="sentence('Return that which thou hast borrowed')">Late library book</button>
-            <button onclick="sentence('Restore the cart unto its place')">Not returning a cart</button>
-            <button onclick="sentence('Bring not thine own bread into the house of plays')">Sneaking in snacks</button>
-            <button onclick="sentence('Ride not where thou art forbidden')">Skateboarding</button>
-            <button onclick="sentence('Pluck not the flowers of the commons')">Picking park flowers</button>
-            <button onclick="sentence('Feed not the fowl of the square')">Feeding pigeons</button>
-            <button onclick="sentence('Covet not the signal of thy neighbour')">Stealing Wi-Fi</button>
-            <button onclick="sentence('Spit not upon the stones')">Spitting gum</button>
-            <button onclick="sentence('Deface not the property of thy betters')">Writing on desks</button>
-        </div>
-        <br>
-        <br>
+
+            <div class="grid">
+                <button onclick="sentence('Thou shalt put away thy victuals')">Not putting your lunch away</button>
+                <button onclick="sentence('Cross only where thou art bidden')">Jaywalking</button>
+                <button onclick="sentence('Defile not the road of the King')">Littering</button>
+                <button onclick="sentence('Idle not upon the ground of another')">Loitering</button>
+                <button onclick="sentence('Await thy turn in humility')">Cutting in line</button>
+                <button onclick="sentence('Disturb not the door of thy neighbour')">Ding dong ditch</button>
+                <button onclick="sentence('Return that which thou hast borrowed')">Late library book</button>
+                <button onclick="sentence('Restore the cart unto its place')">Not returning a cart</button>
+                <button onclick="sentence('Bring not thine own bread into the house of plays')">Sneaking in snacks</button>
+                <button onclick="sentence('Ride not where thou art forbidden')">Skateboarding</button>
+                <button onclick="sentence('Pluck not the flowers of the commons')">Picking park flowers</button>
+                <button onclick="sentence('Feed not the fowl of the square')">Feeding pigeons</button>
+                <button onclick="sentence('Covet not the signal of thy neighbour')">Stealing Wi-Fi</button>
+                <button onclick="sentence('Spit not upon the stones')">Spitting gum</button>
+                <button onclick="sentence('Deface not the property of thy betters')">Writing on desks</button>
+            </div>
+
             <p id="result"></p>
             <h1 id="question" style="display: none;">Do you want this carved across your body?</h1>
         </section>
     </main>
 
     <script>
+        let picked = [];
+
         function sentence(text) {
-            document.querySelector("#result").textContent = text;
+            if (picked.includes(text) || picked.length >= 3) {
+                return;
+            }
+            picked.push(text);
+            document.querySelector("#result").innerText = picked.join("\n");
             document.querySelector("#question").style.display = "block";
             document.querySelector("#question").scrollIntoView({ behavior: "smooth" });
         }
