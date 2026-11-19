@@ -143,4 +143,68 @@ section p {
     color: #343C36;
 }
 
+/*phone please work*/
 
+@media (max-width: 768px) {
+    nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 18px;
+    z-index: 10;
+}
+
+nav h2 {
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+nav a {
+    font-size: 13px;
+    margin-bottom: 0px;
+}
+
+
+/* content section */
+
+main {
+    margin-left: 0px;
+}
+
+section {
+    min-height: auto;
+    padding: 40px 20px;
+    justify-content: flex-start;
+}
+
+section h1 {
+    font-size: 38px;
+    letter-spacing: -1px;
+}
+
+#title h1 {
+    font-size: 48px;
+}
+
+#title h2 {
+    font-size: 22px;
+}
+
+section p {
+    font-size: 17px;
+    max-width: 100%;
+}
+
+.img-centering,
+.img-centering img {
+    max-width: 100%; 
+}
+
+}
