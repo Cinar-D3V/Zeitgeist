@@ -143,3 +143,16 @@ section p {
     color: #343C36;
 }
 
+@media (max-width: 600px) {
+    section {
+        min-height: 0;
+        height: 100%;
+        padding: 25px 7%;
+    }
+
+    section p {
+        line-height: 1.4;
+        font-size: 15px;
+    }
+}
+
