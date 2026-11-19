@@ -94,12 +94,12 @@ section p {
 /* title page */
 
 @keyframes title-effect {
-    from {color: #A99A78;}
-    to {color: #978a68;}
+    from {color: #393833;}
+    to {color: #22211e;}
 }
 
 #title {
-    background-color: #8C7965;
+    background-color: rgb(186, 179, 161);
     animation-name: title-effect;
     animation-duration: 2s;
     animation-iteration-count: infinite;
