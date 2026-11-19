@@ -99,5 +99,23 @@
 
         </section>
         </main>
+    <script>
+        const nav = document.querySelector("nav");
+        const main = document.querySelector("main");
+    
+        const originalParent = nav.parentElement;
+        const originalNext = nav.nextElementSibling;
+    
+        function mobileLayout() {
+            if (window.innerWidth <= 600) {
+                main.prepend(nav);
+            } else {
+                originalParent.insertBefore(nav, originalNext);
+            }
+        }
+    
+        mobileLayout();
+        window.addEventListener("resize", mobileLayout);
+    </script>
     </body>
 </html>
