@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Historical Context</title>
+        <title>Torture Generator</title>
 
       <link rel="stylesheet" href="../style.css">
       <style>
@@ -21,6 +21,30 @@
             font-family: "fancy-font";
             font-size: 50px;
         }
+
+        /* square crime buttons */
+        .crimes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+        .crimes button {
+            width: 140px;
+            height: 140px;
+            padding: 10px;
+            font-family: "Times New Roman", serif;
+            font-size: 16px;
+            background-color: #A99A78;
+            color: #343C36;
+            border: 2px solid #343C36;
+            cursor: pointer;
+        }
+        .crimes button:hover {
+            background-color: #343C36;
+            color: #A99A78;
+        }
       </style>
     </head>
     <body>
@@ -35,13 +59,27 @@
     </nav>
     <main>
         <section id="historical">
-            <h1>Torture Generator:</h1>
-            <p>Create fancy designs, perfect for carving into skin, right here!</p>
-            <p><br>Text:</p>
-            <input placeholder="Be Just" oninput='
-                document.querySelector("#result").textContent = this.value
-            '>
-            <p><br></p>
+            <h1>What have you ever done before?</h1>
+            <h2 style="font-size: 30px; margin-bottom: 30px;">What have you done the most?</h2>
+
+            <div class="crimes">
+                <button>Not putting your lunch away</button>
+                <button>Jaywalking</button>
+                <button>Littering</button>
+                <button>Loitering</button>
+                <button>Cutting in line</button>
+                <button>Ding dong ditch</button>
+                <button>Returning a library book late</button>
+                <button>Not returning your shopping cart</button>
+                <button>Sneaking snacks into a movie</button>
+                <button>Skateboarding where it's not allowed</button>
+                <button>Picking flowers in a public park</button>
+                <button>Feeding the pigeons</button>
+                <button>Using someone's Wi-Fi without asking</button>
+                <button>Spitting gum on the sidewalk</button>
+                <button>Writing on a school desk</button>
+            </div>
+
             <p id="result"></p>
         </section>
         </main>
