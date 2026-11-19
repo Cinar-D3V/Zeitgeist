@@ -8,14 +8,12 @@ body {
     font-family: "Times New Roman", serif;
 }
 
-
 nav {
     position: fixed;
-    left 0;
+    left: 0;
     top: 0;
-    width 200px;
-    align-self: flex-start;
-    height: 100vh;
+    width: 220px;
+    height: 100%;
     padding: 40px 25px;
     display: flex;
     flex-direction: column;
@@ -41,7 +39,7 @@ nav a {
 /* content section */
 
 main {
-    margin-left: 200px; 
+    margin-left: 220px;
 }
 
 section {
@@ -144,3 +142,5 @@ section p {
     background-color: #77766A;
     color: #343C36;
 }
+
+
