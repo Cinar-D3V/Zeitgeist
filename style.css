@@ -144,6 +144,7 @@ section p {
 }
 
 
+
 /* phone layout stuff */
 
 @media (max-width: 600px) {
@@ -151,7 +152,7 @@ section p {
     nav {
         position: static;
         width: 100%;
-        min-height: 100svh;
+        height: auto;
         padding: 25px 7%;
         flex-direction: row;
         flex-wrap: wrap;
@@ -176,8 +177,9 @@ section p {
     }
 
     section {
-        min-height: 100svh;
-        padding: 45px 7%;
+        min-height: auto;
+        height: auto;
+        padding: 35px 7%;
         justify-content: flex-start;
     }
 
