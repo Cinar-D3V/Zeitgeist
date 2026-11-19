@@ -181,6 +181,7 @@ main {
 
 section {
     min-height: 100vh;
+    min-height: 100dvh;
     padding: 40px 20px;
     justify-content: flex-start;
 }
