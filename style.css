@@ -13,7 +13,7 @@ nav {
     position: fixed;
     left 0;
     top: 0;
-    width 220px;
+    width 200px;
     align-self: flex-start;
     height: 100vh;
     padding: 40px 25px;
@@ -41,7 +41,7 @@ nav a {
 /* content section */
 
 main {
-    margin-left: 220px; 
+    margin-left: 200px; 
 }
 
 section {
