@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,7 +36,7 @@
         }
         button {
             width: 120px;
-            height: 120px;
+            height: 100px;
             background-color: #A99A78;
             color: #343C36;
             border: 2px solid #343C36;
@@ -45,9 +46,17 @@
             background-color: #343C36;
             color: #A99A78;
         }
-        button:disabled {
+        button.selected {
             background-color: #343C36;
-            color: #A99A78;
+            color: #ccbb96;
+        }
+        button:disabled {
+            cursor: not-allowed;
+        }
+        #clear {
+            width: 120px;
+            height: auto;
+            padding: 10px;
         }
       </style>
     </head>
@@ -59,7 +68,7 @@
         <a href="../biography/index.html">02 &nbsp; Biography</a>
         <a href="../literary/index.html">03 &nbsp; Literary Analysis</a>
         <a href="../historical/index.html">04 &nbsp; Historical Context</a>
-        <a href="../works-cited/index.html">05 &nbsp; Works Cited</a>
+        <a href="../works-cited/index.html">05 &nbsp; Bibliography </a>
         <a href="">06 &nbsp; Bonus: Confesional</a>
     </nav>
     <main>
@@ -68,42 +77,67 @@
             <h2>Pick the three worst things you've ever done:</h2>
 
             <div class="grid">
-                <button onclick="sentence('Thou shalt put away thy victuals.'); this.disabled = true;">Not putting your lunch away</button>
-                <button onclick="sentence('Cross only where thou art bidden.'); this.disabled = true;">Jaywalking</button>
-                <button onclick="sentence('Defile not the road of the King.'); this.disabled = true;">Littering</button>
-                <button onclick="sentence('Idle not upon the ground of another.'); this.disabled = true;">Loitering</button>
-                <button onclick="sentence('Await thy turn in humility.'); this.disabled = true;">Cutting in line</button>
-                <button onclick="sentence('Disturb not the door of thy neighbour.'); this.disabled = true;">Ding dong ditch</button>
-                <button onclick="sentence('Return that which thou hast borrowed.'); this.disabled = true;">Late library book</button>
-                <button onclick="sentence('Restore the cart unto its place.'); this.disabled = true;">Not returning a cart</button>
-                <button onclick="sentence('Bring not thine own bread into the house of plays.'); this.disabled = true;">Sneaking in snacks</button>
-                <button onclick="sentence('Ride not where thou art forbidden.'); this.disabled = true;">Skateboarding</button>
-                <button onclick="sentence('Pluck not the flowers of the commons.'); this.disabled = true;">Picking park flowers</button>
-                <button onclick="sentence('Feed not the fowl of the square.'); this.disabled = true;">Feeding pigeons</button>
-                <button onclick="sentence('Covet not the signal of thy neighbour.'); this.disabled = true;">Stealing Wi-Fi</button>
-                <button onclick="sentence('Spit not upon the stones.'); this.disabled = true;">Spitting gum</button>
-                <button onclick="sentence('Deface not the property of thy betters.'); this.disabled = true;">Writing on desks</button>
+                <button onclick="sentence('Thou shalt put away thy victuals.', this)">Not putting your lunch away</button>
+                <button onclick="sentence('Cross only where thou art bidden.', this)">Jaywalking</button>
+                <button onclick="sentence('Defile not the road of the King.', this)">Littering</button>
+                <button onclick="sentence('Idle not upon the ground of another.', this)">Loitering</button>
+                <button onclick="sentence('Await thy turn in humility.', this)">Cutting in line</button>
+                <button onclick="sentence('Disturb not the door of thy neighbour.', this)">Ding dong ditch</button>
+                <button onclick="sentence('Return that which thou hast borrowed.', this)">Late library book</button>
+                <button onclick="sentence('Restore the cart unto its place.', this)">Not returning a cart</button>
+                <button onclick="sentence('Bring not thine own bread into the house of plays.', this)">Sneaking in snacks</button>
+                <button onclick="sentence('Ride not where thou art forbidden.', this)">Skateboarding</button>
+                <button onclick="sentence('Pluck not the flowers of the commons.', this)">Picking park flowers</button>
+                <button onclick="sentence('Feed not the fowl of the square.', this)">Feeding pigeons</button>
+                <button onclick="sentence('Covet not the signal of thy neighbour.', this)">Stealing Wi-Fi</button>
+                <button onclick="sentence('Spit not upon the stones.', this)">Spitting gum</button>
+                <button onclick="sentence('Deface not the property of thy betters.', this)">Writing on desks</button>
             </div>
+
+            <button id="clear" onclick="clearSelections()">Clear</button>
+            <br>
 
             <p id="result"></p>
             <h1 id="question" style="display: none;">Do you want this carved across your body?</h1>
+            <br>
+            <p>description here</p>
         </section>
     </main>
 
     <script>
         let picked = [];
 
-        function sentence(text) {
-            if (picked.includes(text) || picked.length >= 3) {
-                return;
+        function sentence(text, button) {
+            if (picked.includes(text)) {
+                picked = picked.filter(item => item !== text);
+                button.classList.remove("selected");
+            } 
+            else {
+                if (picked.length >= 3) {
+                    return;
+                }
+                picked.push(text);
+                button.classList.add("selected");
             }
-            picked.push(text);
 
             if (picked.length == 3) {
                 document.querySelector("#result").innerText = picked.join("\n");
-            document.querySelector("#question").style.display = "block";
-            document.querySelector("#question").scrollIntoView({ behavior: "smooth" });
+                document.querySelector("#question").style.display = "block";
+            } else {
+                document.querySelector("#result").innerText = "";
+                document.querySelector("#question").style.display = "none";
             }
+        }
+
+        function clearSelections() {
+            picked = [];
+
+            document.querySelector("#result").innerText = "";
+            document.querySelector("#question").style.display = "none";
+
+            document.querySelectorAll(".grid button").forEach(button => {
+                button.classList.remove("selected");
+            });
         }
     </script>
     </body>
