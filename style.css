@@ -12,9 +12,10 @@ body {
 
 
 nav {
-    flex: 0 0 220px;
     position: sticky;
+    left 0;
     top: 0;
+    width 220px;
     align-self: flex-start;
     height: 100vh;
     padding: 40px 25px;
